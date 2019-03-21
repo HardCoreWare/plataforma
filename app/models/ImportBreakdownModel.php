@@ -38,8 +38,6 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
                         $subquerys[]=$sql;    
 
-                        echo($sql.'<br><br>');
-
                         break;
     
                 }
@@ -80,6 +78,8 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
             $line['Cuenta']=$row['Cuenta'];
             $line['Modulo']=$row['Modulo'];
             $line['Pagado']=$row['Pagado'];
+            $line['Descripcion']=$row['Descripcion'];
+            $line['Dia']=$row['Dia'];
             $line['Anualidad']=$row['Anualidad'];
             $line['Mes']=$row['Mes'];
 
