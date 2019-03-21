@@ -1,6 +1,6 @@
 <?php
 
-class AccountModel extends MySqlConnection{
+class BreakdowntModel extends MySqlConnection{
 
     public function write($data){
 
