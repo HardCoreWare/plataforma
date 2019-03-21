@@ -16,7 +16,7 @@ class BreakdowntModel extends MySqlConnection{
 
     public function index(){
 
-        $this->mySql->select("Desglose");
+        $this->mySql->select("Desglose",["Importe","Descripcion"]);
 
     }
 
