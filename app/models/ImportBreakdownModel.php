@@ -1,7 +1,7 @@
 <?php
 
 
-class ImportBreakDownModel extends BigQueryConnection implements BigQueryImportInterface{
+class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportInterface{
 
     //inyectamos dependencia de lib desde el constructor
     public function __construct($bigQuery){
