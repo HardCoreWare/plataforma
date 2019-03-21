@@ -37,6 +37,9 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
                         $subquerys[]=$sql;    
+
+                        echo($sql.'<br><br>');
+
                         break;
     
                 }
