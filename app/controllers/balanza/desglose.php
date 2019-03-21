@@ -32,6 +32,8 @@ class desglose extends Controller{
         $importModel->detachBigQuery();
         $importModel=null;
 
+        echo(json_encode($report[0]));
+
     }
 
 }
