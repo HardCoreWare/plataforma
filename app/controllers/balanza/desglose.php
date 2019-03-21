@@ -38,7 +38,6 @@ class desglose extends Controller{
 
         }
 
-        print_r($report);
 
 
 
