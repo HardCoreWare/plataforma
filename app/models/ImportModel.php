@@ -11,8 +11,9 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
 
     public function importBreakdown($accounts,$cecos,$year,$month,$module){
 
-        return [];
 
+
+        
     }
 
     //importamos a partir de cuentas y parametros
@@ -42,6 +43,8 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
                         $subquerys[]=$sql;
+
+                        echo($sql);
     
                         break;
     
