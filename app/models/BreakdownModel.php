@@ -8,7 +8,11 @@ class BreakdowntModel extends MySqlConnection{
 
     }
 
-    
+    public function truncate(){
+
+        $this->mySql->truncate("Desglose");
+
+    }
 
 
 }
