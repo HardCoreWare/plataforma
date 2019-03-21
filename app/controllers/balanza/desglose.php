@@ -23,25 +23,22 @@ class desglose extends Controller{
         //iteramos por cada unidad de negocio
         for ($i=0; $i < count($modules); $i++) { 
 
+            //obtenemos cecos por modulo
+            $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $cecos=[];
+            $cecos[$i] = $cecosModel->cecosString('BANCO');
+            $cecosModel->detachMySql();
+            $cecosModel=null;
 
+            //actualizamos reporte en base a consultas de bigquery
+            $importModel = new ImportBreakdownModel(new BigQuery('informe-211921'));
+            $report[$i]=$importModel->import($accounts,$cecos[$i],$year,$month,'BANCO');
+            $importModel->detachBigQuery();
+            $importModel=null;
 
         }
 
-        //obtenemos cecos por modulo
-        $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $cecos=[];
-        $cecos[0] = $cecosModel->cecosString('BANCO');
-        $cecosModel->detachMySql();
-        $cecosModel=null;
 
-        //actualizamos reporte en base a consultas de bigquery
-        $importModel = new ImportBreakdownModel(new BigQuery('informe-211921'));
-        $report[0]=$importModel->import($accounts,$cecos[0],$year,$month,'BANCO');
-
-        $importModel->detachBigQuery();
-        $importModel=null;
-
-        echo(json_encode($report[0]));
 
     }
 
