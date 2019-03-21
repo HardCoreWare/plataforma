@@ -12,16 +12,15 @@ class desglose extends Controller{
         $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
 
-        print_r($modules);
-
         //obtenemos cuentas del model de cuentas
         $accountModel=new AccountModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $accounts=$accountModel->index();
         $accountModel->detachMySql();
         $accountModel=null;
 
+        $report=[];
 
-
+        //iteramos por cada unidad de negocio
         for ($i=0; $i < count($modules); $i++) { 
 
 
