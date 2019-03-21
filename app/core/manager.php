@@ -22,7 +22,6 @@ require_once('../app/libs/Bseg.php');
 require_once('../app/interfaces/MySqlInterfaces.php');
 require_once('../app/interfaces/BigQueryInterfaces.php');
 
-
 //clases primitivas
 require_once('../app/templates/MySqlConnection.php');
 require_once('../app/templates/BigQueryConnection.php');
@@ -40,6 +39,8 @@ require_once('../app/models/StoreModel.php');
 require_once('../app/models/UserModel.php');
 require_once('../app/models/LoaderModel.php');
 require_once('../app/models/ImportBreakdownModel.php');
+require_once('../app/models/BreakdownModel.php');
+
 
 $router = new Router();
 
