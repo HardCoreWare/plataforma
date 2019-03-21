@@ -39,7 +39,7 @@ require_once('../app/models/TranscryptModel.php');
 require_once('../app/models/StoreModel.php');
 require_once('../app/models/UserModel.php');
 require_once('../app/models/LoaderModel.php');
-require_once('../app/models/ImporBreakDowntModel.php');
+require_once('../app/models/ImportBreakdowntModel.php');
 
 $router = new Router();
 
