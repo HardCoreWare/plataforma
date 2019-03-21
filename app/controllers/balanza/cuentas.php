@@ -16,8 +16,6 @@ class cuentas extends Controller{
     //actualizar cuentas y resetear informe, resumen y sobre-escribir editables
     public function actualizar(){
 
-
-        //
         if(isset($_POST['req'])){
 
             //actualizamos si una cuenta es editable o no 
