@@ -33,7 +33,6 @@ class ImportBreakDownModel extends BigQueryConnection implements BigQueryImportI
                         $subquerys[]=$sql;    
                         break;
     
-    
                 }
     
             }
