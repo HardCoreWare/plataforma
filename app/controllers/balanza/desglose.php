@@ -26,7 +26,7 @@ class desglose extends Controller{
 
         //actualizamos reporte en base a consultas de bigquery
         $importModel = new ImportBreakdownModel(new BigQuery('informe-211921'));
-        $report[0]=$importModel->import($accounts,$cecos[0],$year,$month,'BANCO');
+        $report[0]=$importModel->import($accounts,$cecos[0],$year,$month,'CASA');
 
         $importModel->detachBigQuery();
         $importModel=null;
