@@ -3,6 +3,12 @@
 
 class ImportBreakDownModel extends BigQueryConnection implements BigQueryImportInterface{
 
+    //inyectamos dependencia de lib desde el constructor
+    public function __construct($bigQuery){
+
+        $this->attachBigQuery($bigQuery);
+
+    }
 
     //importamos a partir de cuentas y parametros
     public function import($accounts,$cecos,$year,$month,$module){
