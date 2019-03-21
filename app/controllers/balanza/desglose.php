@@ -20,8 +20,7 @@ class desglose extends Controller{
         //obtenemos cecos por modulo
         $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cecos=[];
-        $cecos[0] = $cecosModel->cecosString('BANCO');
-
+        $cecos[0] = $cecosModel->cecosString('CASA');
         $cecosModel->detachMySql();
         $cecosModel=null;
 
