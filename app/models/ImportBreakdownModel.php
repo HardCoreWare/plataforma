@@ -43,7 +43,6 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
     
             }
                  
-            // de no ser editable creamos consulta vacia sin busqueda
             else {    }
     
         }
@@ -76,8 +75,6 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
             
             $line['Id']=$row['Id'];
             $line['Cuenta']=$row['Cuenta'];
-            $line['Super_Concepto']=$row['Super_Concepto'];
-            $line['Concepto']=$row['Concepto'];
             $line['Modulo']=$row['Modulo'];
             $line['Pagado']=$row['Pagado'];
             $line['Anualidad']=$row['Anualidad'];
