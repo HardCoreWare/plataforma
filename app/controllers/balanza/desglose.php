@@ -12,6 +12,8 @@ class desglose extends Controller{
         $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
 
+        echo($modules);
+
         //obtenemos cuentas del model de cuentas
         $accountModel=new AccountModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $accounts=$accountModel->index();
