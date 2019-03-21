@@ -18,6 +18,8 @@ class desglose extends Controller{
         $accountModel=new AccountModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $accounts=$accountModel->index();
         $accountModel->detachMySql();
+        $accountModel=null;
+
 
 
         for ($i=0; $i < count($modules); $i++) { 
