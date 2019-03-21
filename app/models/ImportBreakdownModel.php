@@ -31,7 +31,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                     // caso no pagado
                     case '0':
     
-                        $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, SGTXT AS Descripcion, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
+                        $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, SGTXT AS Descripcion, SUBSTR(BUDAT,7,8) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
                         "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
