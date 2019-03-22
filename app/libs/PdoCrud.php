@@ -174,7 +174,7 @@ class PdoCrud{
                 //
                 case "assoc":
 
-                    $result=$this->pdo->prepare($sql,PDO::FETCH_ASSOC);
+                    $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
 
                     print_r($result);
 
