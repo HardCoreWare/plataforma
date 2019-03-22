@@ -1,6 +1,6 @@
 <?php
 
-class BreakdowntModel extends MySqlConnection{
+class BreakdownModel extends MySqlConnection{
 
     //
     public function __construct($mySql){

@@ -38,6 +38,13 @@ class desglose extends Controller{
 
         }
 
+        for ($i=0; $i <count($report) ; $i++) { 
+
+            $cicleModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $cicleModel->write($report[$i]);
+
+        }
+
 
 
 
