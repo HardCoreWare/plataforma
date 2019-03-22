@@ -178,8 +178,6 @@ class PdoCrud{
 
                     $result->execute();
 
-                    print_r($result);
-
                     if($result->rowCount()>0){
 
                         $table=[];
