@@ -1,6 +1,6 @@
 <?php
 
-class BreakdownModel extends MySqlConnection{
+class BreakdownModel extends MySqlConnection implements MySqlTruncateInterface,MySqlWriteInterface{
 
     //
     public function __construct($mySql){
@@ -26,7 +26,7 @@ class BreakdownModel extends MySqlConnection{
     //
     public function search($id,$year,$month,$day){
 
-        
+
 
     }
 
