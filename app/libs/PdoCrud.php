@@ -172,54 +172,38 @@ class PdoCrud{
             switch($type){
             //
             case "assoc":
+
                 $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
-                $table=[];
-                foreach($result as $row){
-                            
-                    $line=[];
-                    foreach($row as $key=>$value){            
-            
-                        $line[$key]=$value;
-        
-                    }
-                
-                    $table[]=$line;
-                }
-                    
-                return $table;
-        
-            break;
-            //
-            case "mixed":
-                $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
-                $table=[];
-                $body=[];
-                $head=[];
-                $h_s=false;
-                foreach($result as $i=>$row){
-                            
-                    $line=[];
-                    if(!$h_s){
+
+                if($result->rowCount){
+
+                    $table=[];
+                    foreach($result as $row){
+                                
+                        $line=[];
                         foreach($row as $key=>$value){            
-                            $head[]=$key;
-    
+                
+                            $line[$key]=$value;
+            
                         }
-                        $h_s=true;
-                    }
-                    else {
-                    }
-                    $line=[];
-                    foreach($row as $key=>$value){            
-                        $line[]=$value;
-                    }
-                    $body[]=$line;
-                }
-                $table['head']=$head;
-                $table['body']=$body;
                     
-                return $table;
+                        $table[]=$line;
+                    }
+                        
+                    return $table;
+
+                }
+
+                else{
+
+                    return [];
+
+                }
+
             break;
-            //
+
+/*************************************************************************************************************/
+
             default:
                 $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
                 $table=[];
