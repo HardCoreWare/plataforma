@@ -38,8 +38,6 @@ class desglose extends Controller{
 
         }
 
-        echo(json_encode($report));
-
         $cicleModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cicleModel->truncate();
 
