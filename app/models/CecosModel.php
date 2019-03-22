@@ -1,6 +1,6 @@
 <?php
 
-class CecosModel extends MySqlConnection{
+class CecosModel extends MySqlConnection implements MySqlIndexInterface{
 
     //
     public function __construct($mySql){
