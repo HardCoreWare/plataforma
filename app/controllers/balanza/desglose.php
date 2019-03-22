@@ -7,6 +7,9 @@ class desglose extends Controller{
 
         echo($id.'<br>'.$year.'<br>'.$month.'<br>'.$day);
 
+        $breakDownModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+        $breakDownModel=null;
+
 
 
     }
