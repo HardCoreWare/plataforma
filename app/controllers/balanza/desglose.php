@@ -4,7 +4,7 @@ class desglose extends Controller{
 
     public function buscar($id,$year,$month,$day){
 
-
+        echo($id.'<br>'.$year.'<br>'.$month.'<br>'.$day);
 
     }
 
