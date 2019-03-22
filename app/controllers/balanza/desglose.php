@@ -26,13 +26,13 @@ class desglose extends Controller{
             //obtenemos cecos por modulo
             $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
             $cecos=[];
-            $cecos[$i] = $cecosModel->cecosString('BANCO');
+            $cecos[$i] = $cecosModel->cecosString($modules[$i]);
             $cecosModel->detachMySql();
             $cecosModel=null;
 
             //actualizamos reporte en base a consultas de bigquery
             $importModel = new ImportBreakdownModel(new BigQuery('informe-211921'));
-            $report[$i]=$importModel->import($accounts,$cecos[$i],$year,$month,'BANCO');
+            $report[$i]=$importModel->import($accounts,$cecos[$i],$year,$month,$modules[$i]);
             $importModel->detachBigQuery();
             $importModel=null;
 
