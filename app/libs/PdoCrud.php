@@ -182,6 +182,8 @@ class PdoCrud{
 
                         $result=$query->fetch(PDO::FETCH_ASSOC);
 
+                        print_r($result);
+
                         $table=[];
                         foreach($result as $row){
                                     
