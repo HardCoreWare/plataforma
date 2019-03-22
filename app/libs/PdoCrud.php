@@ -185,7 +185,7 @@ class PdoCrud{
 
                         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
-                            print_r($row);
+                            $table[]=$row;
                             
                         }
 
