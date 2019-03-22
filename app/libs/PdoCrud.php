@@ -202,38 +202,28 @@ class PdoCrud{
                 //
                 case "num":
 
-                    $result=$this->pdo->prepare($sql);
+                $query = $this->pdo->prepare($sql);
 
-                    $result->execute();
+                $query->execute();
 
-                    if($result->rowCount()>0){
+                if($query->rowCount()>0){
 
-                        $table=[];
 
-                        foreach($result as $row){
-                                    
-                            $line=[];
+                    $table=[];
 
-                            foreach($row as $value){            
-                    
-                                $line[]=$value;
-                
-                            }
+                    while ($row = $query->fetch(PDO::FETCH_NUM)) {
+
+                        $table[]=$row;
                         
-                            $table[]=$line;
-                        }
-
-                        $result=null;
-                            
-                        return $table;
-
                     }
 
-                    else{
+                }
 
-                        return [];
+                else{
 
-                    }
+                    return [];
+
+                }
 
                 break;
 
