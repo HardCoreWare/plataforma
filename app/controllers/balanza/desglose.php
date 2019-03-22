@@ -52,8 +52,6 @@ class desglose extends Controller{
         $cicleModel->detachMySql();
         $cicleModel=null;
 
-
-
     }
 
 }
