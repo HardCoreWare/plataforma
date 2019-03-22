@@ -176,6 +176,8 @@ class PdoCrud{
 
                     $result=$this->pdo->prepare($sql);
 
+                    $result->bindParam();
+
                     $result->execute();
 
                     if($result->rowCount()>0){
@@ -236,7 +238,7 @@ class PdoCrud{
                         return [];
 
                     }
-                    
+
                 break;
 
                 }//fin de switch
