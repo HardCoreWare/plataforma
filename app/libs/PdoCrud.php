@@ -171,36 +171,36 @@ class PdoCrud{
             
             switch($type){
             //
-            case "assoc":
+                case "assoc":
 
-                $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
+                    $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
 
-                if($result->rowCount){
+                    if($result->rowCount){
 
-                    $table=[];
-                    foreach($result as $row){
-                                
-                        $line=[];
-                        foreach($row as $key=>$value){            
-                
-                            $line[$key]=$value;
-            
-                        }
+                        $table=[];
+                        foreach($result as $row){
+                                    
+                            $line=[];
+                            foreach($row as $key=>$value){            
                     
-                        $table[]=$line;
-                    }
+                                $line[$key]=$value;
+                
+                            }
                         
-                    return $table;
+                            $table[]=$line;
+                        }
+                            
+                        return $table;
 
-                }
+                    }
 
-                else{
+                    else{
 
-                    return [];
+                        return [];
 
-                }
+                    }
 
-            break;
+                break;
 
 /*************************************************************************************************************/
 
