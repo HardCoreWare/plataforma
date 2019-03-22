@@ -178,9 +178,9 @@ class PdoCrud{
 
                     $query->execute();
 
-                    $result=$query->fetch(PDO::FETCH_ASSOC);
-
                     if($query->rowCount()>0){
+
+                        $result=$query->fetch(PDO::FETCH_ASSOC);
 
                         $table=[];
                         foreach($result as $row){
