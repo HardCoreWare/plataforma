@@ -183,12 +183,10 @@ class PdoCrud{
 
                         $table=[];
 
-                        foreach ($query as $row) {
+                        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 
-                            $result=$row->fetch(PDO::FETCH_ASSOC);
-
-                            $table[]=$result;
-
+                            print_r($row);
+                            
                         }
 
                     }
