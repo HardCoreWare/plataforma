@@ -207,7 +207,10 @@ class PdoCrud{
 
                 //
                 case "num":
-                    $result=$this->pdo->query($sql,PDO::FETCH_NUM);
+
+                    $result=$this->pdo->prepare($sql);
+
+                    $result->execute();
 
                     if($result->rowCount()>0){
 
@@ -215,9 +218,9 @@ class PdoCrud{
                         foreach($result as $row){
                                     
                             $line=[];
-                            foreach($row as $value){            
+                            foreach($row as $key=>$value){            
                     
-                                $line[]=$value;
+                                $line[$key]=$value;
                 
                             }
                         
@@ -233,7 +236,7 @@ class PdoCrud{
                         return [];
 
                     }
-
+                    
                 break;
 
                 }//fin de switch
