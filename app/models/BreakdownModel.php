@@ -24,6 +24,12 @@ class BreakdownModel extends MySqlConnection{
     }
 
     //
+    public function search(){
+
+
+    }
+
+    //
     public function truncate(){
 
         $this->mySql->truncate("Desglose");
