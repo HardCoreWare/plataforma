@@ -189,6 +189,8 @@ class PdoCrud{
                             
                         }
 
+                        return $table;
+
                     }
 
                     else{
@@ -208,7 +210,6 @@ class PdoCrud{
 
                 if($query->rowCount()>0){
 
-
                     $table=[];
 
                     while ($row = $query->fetch(PDO::FETCH_NUM)) {
@@ -216,6 +217,8 @@ class PdoCrud{
                         $table[]=$row;
                         
                     }
+
+                    return $table;
 
                 }
 
