@@ -185,7 +185,7 @@ class PdoCrud{
                         print_r($result);
 
                         $table=[];
-                        foreach($result as $row){
+                        foreach($query as $row){
                                     
                             $line=[];
                             foreach($row as $key=>$value){            
