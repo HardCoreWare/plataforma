@@ -6,6 +6,8 @@ class desglose extends Controller{
 
         echo($id.'<br>'.$year.'<br>'.$month.'<br>'.$day);
 
+        
+
     }
 
     public function importar(){
