@@ -217,17 +217,21 @@ class PdoCrud{
                     if($result->rowCount()>0){
 
                         $table=[];
+
                         foreach($result as $row){
                                     
                             $line=[];
-                            foreach($row as $key=>$value){            
+
+                            foreach($row as $value){            
                     
-                                $line[$key]=$value;
+                                $line[]=$value;
                 
                             }
                         
                             $table[]=$line;
                         }
+
+                        $result=null;
                             
                         return $table;
 
