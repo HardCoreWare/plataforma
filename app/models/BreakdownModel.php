@@ -24,8 +24,9 @@ class BreakdownModel extends MySqlConnection{
     }
 
     //
-    public function search(){
+    public function search($id,$year,$month,$day){
 
+        
 
     }
 
