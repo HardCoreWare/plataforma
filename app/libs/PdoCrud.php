@@ -163,7 +163,7 @@ class PdoCrud{
     type:'assoc'   or 'num'
 
     */
-    public function select($table,$cols,$targets,$order,$type){
+    public function select($table,$cols,$targets,$order,$type='assoc'){
         
         $field_pack=implode(", ",$cols);    
         $sql="SELECT ".$field_pack." FROM ".$table." WHERE ".$targets." ORDER BY ".$order;
@@ -202,26 +202,38 @@ class PdoCrud{
 
                 break;
 
-/*************************************************************************************************************/
+                default:
+                    $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
 
-            default:
-                $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
-                $table=[];
-                foreach($result as $row){
-                            
-                    $line=[];
-                    foreach($row as $key=>$value){            
-            
-                        $line[$key]=$value;
-        
-                    }
-                
-                    $table[]=$line;
-                }
+                    if($result->rowCount()){
+
+                        $table=[];
+                        foreach($result as $row){
+                                    
+                            $line=[];
+                            foreach($row as $key=>$value){            
                     
-                return $table;
+                                $line[$key]=$value;
+                
+                            }
+                        
+                            $table[]=$line;
+                        }
+                            
+                        return $table;
+
+                    }
+
+                    else{
+
+                        return [];
+
+                    }
+
+                break;
+
+                }//fin de switch
             }
-        }
         catch(Exception $e){
             die($e);
             return null;
