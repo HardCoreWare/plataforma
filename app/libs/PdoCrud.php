@@ -170,10 +170,13 @@ class PdoCrud{
         try{
             
             switch($type){
-            //
+
+                //
                 case "assoc":
 
-                    $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
+                    $sqlQuery=$this->pdo->prepare($sql,PDO::FETCH_ASSOC);
+
+
 
                     if($result->rowCount()>0){
 
@@ -202,8 +205,9 @@ class PdoCrud{
 
                 break;
 
-                default:
-                    $result=$this->pdo->query($sql,PDO::FETCH_ASSOC);
+                //
+                case "num":
+                    $result=$this->pdo->query($sql,PDO::FETCH_NUM);
 
                     if($result->rowCount()>0){
 
@@ -211,9 +215,9 @@ class PdoCrud{
                         foreach($result as $row){
                                     
                             $line=[];
-                            foreach($row as $key=>$value){            
+                            foreach($row as $value){            
                     
-                                $line[$key]=$value;
+                                $line[]=$value;
                 
                             }
                         
