@@ -5,11 +5,10 @@ class desglose extends Controller{
     
     public function buscar($id,$year,$month,$day){
 
-        echo($id.'<br>'.$year.'<br>'.$month.'<br>'.$day);
-
         $breakDownModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        
         $breakdown = $breakDownModel->search($id,$year,$month,$day);
+
+        echo(json_encode($breakdown));
 
 
 
