@@ -187,6 +187,8 @@ class PdoCrud{
 
                             $result=$row->fetch(PDO::FETCH_ASSOC);
 
+                            $table[]=$result;
+
                         }
 
                     }
