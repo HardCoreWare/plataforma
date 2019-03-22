@@ -2,6 +2,12 @@
 
 class desglose extends Controller{
 
+    public function buscar($id,$year,$month,$day){
+
+
+
+    }
+
     public function importar(){
 
         //modelo de ciclo de donde obtenemos datosm principales
