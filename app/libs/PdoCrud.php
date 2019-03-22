@@ -180,24 +180,14 @@ class PdoCrud{
 
                     if($query->rowCount()>0){
 
-                        $result=$query->fetch(PDO::FETCH_ASSOC);
-
-                        print_r($result);
 
                         $table=[];
-                        foreach($query as $row){
-                                    
-                            $line=[];
-                            foreach($row as $key=>$value){            
-                    
-                                $line[$key]=$value;
-                
-                            }
-                        
-                            $table[]=$line;
+
+                        foreach ($query as $row) {
+
+                            $result=$row->fetch(PDO::FETCH_ASSOC);
+
                         }
-                            
-                        return $table;
 
                     }
 
