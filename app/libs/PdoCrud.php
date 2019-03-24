@@ -163,7 +163,7 @@ class PdoCrud{
     type:'assoc'   or 'num'
 
     */
-    public function select($table,$cols,$targets,$order,$type='num'){
+    public function select($table,$cols,$targets,$order,$type='assoc'){
         
         $field_pack=implode(", ",$cols);    
         $sql="SELECT ".$field_pack." FROM ".$table." WHERE ".$targets." ORDER BY ".$order;
