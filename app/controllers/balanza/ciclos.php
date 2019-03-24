@@ -40,7 +40,6 @@ class ciclos extends Controller{
         $storeModel->delete($cicle);
         $storeModel->detachMySql();
         $storeModel = null;
-        
         echo("success");
                 
     }
@@ -71,6 +70,7 @@ class ciclos extends Controller{
         $summaryModel->truncate();
         $summaryModel->detachMySql();
         $summaryModel=null;
+        echo("success");
 
 
     }
