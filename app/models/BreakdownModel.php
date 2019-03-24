@@ -17,9 +17,9 @@ class BreakdownModel extends MySqlConnection implements MySqlTruncateInterface,M
     }
 
     //
-    public function search($id,$year,$month,$day,$module){
+    public function search($id,$year,$month,$day,$module,$ceco){
 
-        if($day!=="all"){
+        if(($day!=="all")($ceco==="all")){
 
             $breakdown = $this->mySql->select("Desglose",["Id","Monto","Descripcion","Dia","Modulo","Ceco"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' AND Dia = '".$day."'"," Id ","assoc");
 
