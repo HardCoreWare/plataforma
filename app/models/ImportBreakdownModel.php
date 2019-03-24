@@ -78,6 +78,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
             $line['Cuenta']=$row['Cuenta'];
             $line['Modulo']=$row['Modulo'];
             $line['Pagado']=$row['Pagado'];
+            $line['Ceco']=$row['Ceco'];
             $line['Descripcion']=$row['Descripcion'];
             $line['Dia']=$row['Dia'];
             $line['Anualidad']=$row['Anualidad'];
