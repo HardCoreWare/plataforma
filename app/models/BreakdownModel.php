@@ -34,7 +34,7 @@ class BreakdownModel extends MySqlConnection implements MySqlTruncateInterface,M
 
         else if(($day==="all")&&($ceco!=="all")){
 
-            $breakdown = $this->mySql->select("Desglose",["Id","Monto","Descripcion","Dia","Modulo","Ceco"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' AND Ceco LIKE %'".$ceco."%'"," Id ","assoc");
+            $breakdown = $this->mySql->select("Desglose",["Id","Monto","Descripcion","Dia","Modulo","Ceco"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' AND Ceco LIKE '%".$ceco."%'"," Id ","assoc");
 
         }
 
