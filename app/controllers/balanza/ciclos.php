@@ -39,7 +39,7 @@ class ciclos extends Controller{
         $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $storeModel->delete($cicle);
         $storeModel->detachMySql();
-        $storeMOdel = null;
+        $storeModel = null;
         
         echo("success");
                 
