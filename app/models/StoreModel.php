@@ -28,7 +28,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //iteramos por cada id
         foreach ($ids as $id) {
 
-            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' ","Id");
+            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' ","Id");
             $line["Id"]=intval($line["Id"]);
         
             $line["Montos"]=[];
