@@ -3,7 +3,7 @@
 class desglose extends Controller{
 
     
-    public function buscar($id,$year,$month,$day,$module){
+    public function buscar($id,$year,$month,$day,$module,$ceco){
 
 
         $breakDownModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
