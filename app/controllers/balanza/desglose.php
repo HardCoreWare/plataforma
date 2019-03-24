@@ -7,10 +7,10 @@ class desglose extends Controller{
 
         $breakDownModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $breakdown = $breakDownModel->search($id,$year,$month,$day);
+        $breakDownModel->search();
+
 
         echo(json_encode($breakdown));
-
-
 
     }
 
