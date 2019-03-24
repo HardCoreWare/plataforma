@@ -10,7 +10,6 @@ class desglose extends Controller{
         $breakDownModel->detachMySql();
         $breakDownModel=null;
 
-
         echo(json_encode($breakdown));
 
     }
