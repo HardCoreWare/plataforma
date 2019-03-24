@@ -176,7 +176,6 @@ class PdoCrud{
                 case "assoc":
 
                     $query = $this->pdo->prepare($sql);
-
                     $query->execute();
 
                     if($query->rowCount()>0){
@@ -185,9 +184,9 @@ class PdoCrud{
                         $table=[];
 
                         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-
-                            $table[]=$row;
                             
+                            $table[]=$row;
+
                         }
 
                         return $table;
