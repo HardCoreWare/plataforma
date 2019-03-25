@@ -62,15 +62,14 @@ class editables extends Controller{
             $storeModel = null;
 
             $response=['status'=>'success'];
-            echo(json_encode($response));
+
+            echo('error 402');
         
         }
 
         else{
 
-            $response=['status'=>'402'];
-            echo(json_encode($response));
-        
+            echo('error 402');
 
         }
 
