@@ -68,8 +68,7 @@ class cecos extends Controller{
             $storeModel->detachMySql();
             $storeModel = null;
 
-            $response=['status'=>'success'];
-            echo(json_encode($response));
+            echo('success');
 
         }
         else{
@@ -94,6 +93,30 @@ class cecos extends Controller{
             $cecosModel->detachMySql();
             $cecosModel=null;
 
+            //borramos tablas dependientes
+            $summaryModel = new SummaryModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $summaryModel->truncate();
+            $summaryModel->detachMySql();
+            $summaryModel = null;
+
+            //borramos reporte
+            $reportModel=new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $reportModel->truncate();
+            $reportModel->detachMySql();
+            $reportModel=null;
+
+            //llamamos ciclo
+            $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $cicle=$cicleModel->getLast();
+            $cicleModel->detachMySql();
+            $cicleModel=null;
+
+            //escribimos el guardado definitivo
+            $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $storeModel->delete($cicle);
+            $storeModel->detachMySql();
+            $storeModel = null;
+
         }
         else{
 
@@ -114,9 +137,6 @@ class cecos extends Controller{
             $cecosModel->delete($postData);
             $cecosModel->detachMySql();
             $cecosModel=null;
-            
-            
-            
 
         }
         else{
