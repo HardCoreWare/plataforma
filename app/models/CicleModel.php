@@ -52,6 +52,7 @@ class CicleModel extends MySqlConnection implements MySqlIndexInterface {
 
     }
 
+    //
     public function getLast(){
 
         $lastId=$this->mySql->selectCount("Ciclos","Id"," 1 ");
@@ -78,6 +79,5 @@ class CicleModel extends MySqlConnection implements MySqlIndexInterface {
 
     
 }
-
 
 ?>
