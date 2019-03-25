@@ -26,6 +26,7 @@ class CicleModel extends MySqlConnection implements MySqlIndexInterface {
 
         //
         $newCicle=[];
+        $newCicle["Id"]=strval(intval($lastId)+1);
         $newCicle["Anualidad"]="";
         $newCicle["Mes"]="";
         $newCicle["Modulos"]=$cicle['Modulos'];
