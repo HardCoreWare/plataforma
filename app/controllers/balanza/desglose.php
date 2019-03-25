@@ -67,7 +67,7 @@ class desglose extends Controller{
     }
 
 
-    public function parche(){
+    public function parche($year,$month){
 
         //modelo de ciclo de donde obtenemos datosm principales
         $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
