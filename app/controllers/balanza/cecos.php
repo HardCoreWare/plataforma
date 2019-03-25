@@ -113,7 +113,10 @@ class cecos extends Controller{
             $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
             $cecosModel->delete($postData);
             $cecosModel->detachMySql();
-            $cecosModel=null;          
+            $cecosModel=null;
+            
+            
+            
 
         }
         else{
