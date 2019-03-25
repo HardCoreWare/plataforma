@@ -63,7 +63,7 @@ class BreakdownModel extends MySqlConnection implements MySqlTruncateInterface,M
         $month=$cicle['Mes'];
 
         //borramos todo en el ciclo
-        $this->mySql->query("DELETE FROM Reporte WHERE Anualidad = '".$year."' AND Mes = '".$month."' ;");
+        $this->mySql->query("DELETE FROM Desglose WHERE Anualidad = '".$year."' AND Mes = '".$month."' ;");
 
     }
 
