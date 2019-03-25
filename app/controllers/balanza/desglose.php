@@ -100,16 +100,16 @@ class desglose extends Controller{
 
         }
 
-        $break = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+        $breakdownModel = new BreakdownModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
 
         for ($i=0; $i <count($report) ; $i++) { 
 
-            $cicleModel->write($report[$i]);
+            $breakdownModel->write($report[$i]);
 
         }
 
-        $cicleModel->detachMySql();
-        $cicleModel=null;
+        $breakdownModel->detachMySql();
+        $breakdownModel=null;
         echo('success');
 
     }
