@@ -74,6 +74,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
 
             }
             
+            //cargamos los valores obtenidos de big query a la tabla cecos
             $line['Id']=$row['Id'];
             $line['Cuenta']=$row['Cuenta'];
             $line['Modulo']=$row['Modulo'];
