@@ -160,7 +160,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
 
         //mes en curso y por tanto ultimo mes de interes
-        $months=[1,2,3];
+        $months=['1','2','3'];
 
         //iteramos por cada id
         foreach ($ids as $id) {
