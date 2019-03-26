@@ -40,7 +40,7 @@ class reporte extends Controller{
 
         //modelo de guardado habilitado
         $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $report = $storeModel->tableMonth($year,$module);
+        $report = $storeModel->tableModule($year,$module);
         $storeModel->detachMySql();
         $storeModel=null;
 
