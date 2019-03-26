@@ -158,10 +158,14 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //creamos resumen en blanco
         $summary=[];
 
+
+        //mes en curso y por tanto ultimo mes de interes
+        $months=[1,2,3];
+
         //iteramos por cada id
         foreach ($ids as $id) {
 
-            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' ","Id");
+            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Modulo = '".$module."' ","Id");
             $line["Id"]=intval($line["Id"]);
         
             $line["Montos"]=[];
@@ -169,13 +173,13 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
             //creamos total llevado a0
             $total=0;
             //iteramos por cada modulo agregando los montos
-            for ($i=0; $i<count($modules);$i++) {
+            for ($i=1; $i<=3;$i++) {
 
                 //modulo
-                $module=$modules[$i];
+                $month=$months[$i];
 
                 //monto
-                $ammount=$this->mySql->selectRow("Reporte",["Monto","Modulo"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id");
+                $ammount=$this->mySql->selectRow("Reporte",["Monto","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id");
                 $ammount["Monto"]=floatval($ammount["Monto"]);
                 $line["Montos"][]=$ammount;
 
@@ -185,8 +189,8 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 //llegando al final agregamos el total en el segundo nivel
                 if($i==4){
 
-                    $totalModule=["Modulo"=>"TOTAL","Monto"=>$total];
-                    $line["Montos"][]=$totalModule;
+                    $totalMonth=["Modulo"=>"TOTAL","Monto"=>$total];
+                    $line["Montos"][]=$totalMonth;
 
                 }
 
@@ -220,7 +224,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
 
 
-    
+
     
 }
 
