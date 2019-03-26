@@ -152,7 +152,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         $monthArray=2;
 
         //mes en curso y por tanto ultimo mes de interes
-        $months=['1','2','3'];
+        $months=selectDistinct("Reporte","Mes"," Anualidad = '".$year."'","Id");
 
         //iteramos por cada id
         foreach ($ids as $id) {
