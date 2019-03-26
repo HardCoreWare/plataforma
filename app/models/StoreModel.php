@@ -165,7 +165,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
             //creamos total llevado a0
             $total=0;
             //iteramos por cada modulo agregando los montos
-            for ($i=0; $i<=count($months);$i++) {
+            for ($i=0; $i<count($months);$i++) {
 
                 $month=$months[$i];
 
