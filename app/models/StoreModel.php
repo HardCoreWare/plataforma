@@ -170,7 +170,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 $month=$months[$i];
 
                 //monto
-                $ammount=$this->mySql->selectRow("Reporte",["Monto","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id");
+                $ammount=$this->mySql->selectRow("Reporte",["Monto","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id","assoc");
                 $ammount["Monto"]=floatval($ammount["Monto"]);
                 $line["Montos"][]=$ammount;
 
