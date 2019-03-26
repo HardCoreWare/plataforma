@@ -178,7 +178,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 $total+=floatval($ammount["Monto"]);
 
                 //llegando al final agregamos el total en el segundo nivel
-                if($i==3){
+                if($i==2){
 
                     $totalMonth=["Modulo"=>"TOTAL","Monto"=>$total];
                     $line["Montos"][]=$totalMonth;
