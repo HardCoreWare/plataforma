@@ -36,11 +36,11 @@ class reporte extends Controller{
         //
         $paramArray=explode("-",$params);
         $year=$paramArray[0];
-        $month=$paramArray[1];
+        $module=$paramArray[1];
 
         //modelo de guardado habilitado
         $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $report = $storeModel->tableMonth($modules,$year,$month);
+        $report = $storeModel->tableMonth($year,$module);
         $storeModel->detachMySql();
         $storeModel=null;
 
