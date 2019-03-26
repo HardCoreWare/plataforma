@@ -132,6 +132,60 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         $this->mySql->query("DELETE FROM Reporte WHERE Anualidad = '".$year."' AND Mes = '".$month."' ;");
 
     }
+
+
+        //obtenemos tabla con modulos presentes
+        public function tableModule($modules,$year,$month){
+
+            //obtener ids presentes en tabla
+            $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
+    
+            //creamos resumen en blanco
+            $summary=[];
+    
+            //iteramos por cada id
+            foreach ($ids as $id) {
+    
+                $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' ","Id");
+                $line["Id"]=intval($line["Id"]);
+            
+                $line["Montos"]=[];
+                
+                //creamos total llevado a0
+                $total=0;
+                //iteramos por cada modulo agregando los montos
+                for ($i=0; $i<count($modules);$i++) {
+    
+                    //modulo
+                    $module=$modules[$i];
+    
+                    //monto
+                    $ammount=$this->mySql->selectRow("Reporte",["Monto","Modulo"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id");
+                    $ammount["Monto"]=floatval($ammount["Monto"]);
+                    $line["Montos"][]=$ammount;
+    
+                    //total
+                    $total+=floatval($ammount["Monto"]);
+    
+                    //llegando al final agregamos el total en el segundo nivel
+                    if($i==4){
+    
+                        $totalModule=["Modulo"=>"TOTAL","Monto"=>$total];
+                        $line["Montos"][]=$totalModule;
+    
+                    }
+    
+                }
+    
+                //agregamos linea al resumen
+                $summary[]=$line;
+    
+            }
+    
+            //retornamos resumen
+            return $summary;
+    
+        }
     
 }
 
