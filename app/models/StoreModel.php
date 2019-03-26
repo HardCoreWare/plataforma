@@ -149,6 +149,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //creamos resumen en blanco
         $summary=[];
 
+        $monthArray=2;
 
         //mes en curso y por tanto ultimo mes de interes
         $months=['1','2','3'];
