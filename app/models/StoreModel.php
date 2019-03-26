@@ -150,7 +150,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //iteramos por cada id
         foreach ($ids as $id) {
 
-            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Modulo = '".$module."' ","Id");
+            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Modulo = '".$module."' ","Id");
             $line["Id"]=intval($line["Id"]);
         
             $line["Montos"]=[];
@@ -173,7 +173,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 //llegando al final agregamos el total en el segundo nivel
                 if($i==2){
 
-                    $totalMonth=["Modulo"=>"TOTAL","Monto"=>$total];
+                    $totalMonth=["Mes"=>"TOTAL","Monto"=>$total];
                     $line["Montos"][]=$totalMonth;
 
                 }
