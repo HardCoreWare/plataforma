@@ -135,6 +135,20 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //obtenemos tabla con modulos presentes
     public function tableModule($modules,$year,$module){
 
@@ -187,6 +201,26 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         return $summary;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     
 }
 
