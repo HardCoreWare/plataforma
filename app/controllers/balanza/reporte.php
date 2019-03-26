@@ -10,7 +10,6 @@ class reporte extends Controller{
         $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
 
-        //
         $paramArray=explode("-",$params);
         $year=$paramArray[0];
         $month=$paramArray[1];
@@ -33,7 +32,6 @@ class reporte extends Controller{
         $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
 
-        //
         $paramArray=explode("-",$params);
         $year=$paramArray[0];
         $module=$paramArray[1];
