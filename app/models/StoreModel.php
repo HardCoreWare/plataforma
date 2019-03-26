@@ -17,7 +17,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
     }
 
     //obtenemos tabla con modulos presentes
-    public function tableMonth($modules,$year,$module){
+    public function tableMonth($modules,$year,$month){
 
         //obtener ids presentes en tabla
         $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
@@ -28,7 +28,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //iteramos por cada id
         foreach ($ids as $id) {
 
-            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Modulo = '".$module."' ","Id");
+            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Mes","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Month = '".$month."' ","Id");
             $line["Id"]=intval($line["Id"]);
         
             $line["Montos"]=[];
