@@ -208,7 +208,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 $month=$months[$i];
 
                 $ammount["Monto"]=$this->mySql->selectSum("Reporte","Monto","Id = '".$id."' AND Anualidad = '".$year."' AND Mes <= '".$month."' AND Modulo = '".$module."' ","Id");
-                $ammount["Modulo"]=$module;
+                $ammount["Mes"]=$month;
                 $line["Montos"][]=$ammount;
 
 
