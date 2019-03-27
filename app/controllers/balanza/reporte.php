@@ -46,7 +46,7 @@ class reporte extends Controller{
 
     }
 
-    public function modular_acumulado($params){
+    public function modulara_cumulado($params){
 
         //modelo de ciclo de donde obtenemos datosm principales
         $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
