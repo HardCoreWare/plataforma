@@ -169,8 +169,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 //total
                 $total+=floatval($ammount["Monto"]);
 
-
-
             }
 
             //agregamos linea al resumen
