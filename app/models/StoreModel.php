@@ -200,8 +200,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         
             $line["Montos"]=[];
             
-            //creamos total llevado a0
-            $total=0;
+
             //iteramos por cada modulo agregando los montos
             for ($i=0; $i<count($months);$i++) {
 
@@ -213,15 +212,9 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 $line["Montos"][]=$ammount;
 
                 //total
-                $total+=floatval($ammount["Monto"]);
 
                 //llegando al final agregamos el total en el segundo nivel
-                if($i==2){
 
-                    $totalMonth=["Mes"=>"TOTAL","Monto"=>$total];
-                    $line["Montos"][]=$totalMonth;
-
-                }
 
             }
 
