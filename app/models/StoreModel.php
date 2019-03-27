@@ -235,15 +235,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
     }
 
-
-
-
-
-
-
-
-
-
     
 }
 
