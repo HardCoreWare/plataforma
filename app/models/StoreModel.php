@@ -155,6 +155,55 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         
             $line["Montos"]=[];
             
+
+            //iteramos por cada modulo agregando los montos
+            for ($i=0; $i<count($months);$i++) {
+
+                $month=$months[$i];
+
+                //monto
+                $ammount=$this->mySql->selectRow("Reporte",["Monto","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id","assoc");
+                $ammount["Monto"]=floatval($ammount["Monto"]);
+                $line["Montos"][]=$ammount;
+
+                //total
+                $total+=floatval($ammount["Monto"]);
+
+
+
+            }
+
+            //agregamos linea al resumen
+            $summary[]=$line;
+
+        }
+
+        //retornamos resumen
+        return $summary;
+
+    }
+
+    public function tableModuleAccumulated($year,$module){
+
+        //obtener ids presentes en tabla
+        $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
+
+        //creamos resumen en blanco
+        $summary=[];
+
+        $monthArray=2;
+
+        //mes en curso y por tanto ultimo mes de interes
+        $months=["1","2","3"];
+
+        //iteramos por cada id
+        foreach ($ids as $id) {
+
+            $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Modulo = '".$module."' ","Id");
+            $line["Id"]=intval($line["Id"]);
+        
+            $line["Montos"]=[];
+            
             //creamos total llevado a0
             $total=0;
             //iteramos por cada modulo agregando los montos
@@ -189,16 +238,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         return $summary;
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
