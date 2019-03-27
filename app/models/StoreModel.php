@@ -166,8 +166,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 $ammount["Monto"]=floatval($ammount["Monto"]);
                 $line["Montos"][]=$ammount;
 
-                //total
-                $total+=floatval($ammount["Monto"]);
 
             }
 
