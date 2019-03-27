@@ -199,7 +199,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
             $line=$this->mySql->selectRow("Reporte",["Id","Cuenta","Super_Concepto","Concepto","Editable","Pagado","Anualidad"],"Id = '".$id."' AND Anualidad = '".$year."' AND Modulo = '".$module."' ","Id");
             $line["Id"]=intval($line["Id"]);
-        
             $line["Montos"]=[];
             
 
