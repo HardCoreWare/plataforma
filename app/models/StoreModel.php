@@ -179,6 +179,8 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
     }
 
+
+    //obtenemos tabla con modulos presentes
     public function tableModuleAccumulated($year,$module){
 
         //obtener ids presentes en tabla
@@ -207,13 +209,9 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
                 $month=$months[$i];
 
                 //monto
-                $ammount=$this->mySql->selectRow("Reporte",["Monto","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes <= '".$month."' AND Modulo = '".$module."' ","Id","assoc");
+                $ammount=$this->mySql->selectRow("Reporte",["Monto","Mes"],"Id = '".$id."' AND Anualidad = '".$year."' AND Mes = '".$month."' AND Modulo = '".$module."' ","Id","assoc");
                 $ammount["Monto"]=floatval($ammount["Monto"]);
                 $line["Montos"][]=$ammount;
-
-                //total
-
-                //llegando al final agregamos el total en el segundo nivel
 
 
             }
@@ -227,7 +225,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         return $summary;
 
     }
-
     
 }
 
