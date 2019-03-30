@@ -84,6 +84,7 @@ class cecos extends Controller{
 
         if(isset($_POST['req'])){
 
+
             //datos de peticion en json
             $postData=json_decode($_POST['req'],true);
 
@@ -180,6 +181,9 @@ class cecos extends Controller{
 
     }
     
+
+
+
 }
 
 
