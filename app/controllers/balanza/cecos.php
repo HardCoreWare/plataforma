@@ -68,6 +68,7 @@ class cecos extends Controller{
             $storeModel->detachMySql();
             $storeModel = null;
 
+            //imprimimos el echo
             echo('success');
 
         }
