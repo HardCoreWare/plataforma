@@ -35,8 +35,9 @@ class cecos extends Controller{
 
         if(isset($_POST['req'])){
 
+
             //datos de peticion en json
-            $postData=$_POST['req'];
+            $postData=json_decode($_POST['req'],true);
 
             //actualizamos centro de costo
             $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
