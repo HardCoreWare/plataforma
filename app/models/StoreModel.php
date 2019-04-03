@@ -197,6 +197,8 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
             $month=strval($lastMonth);
 
+            $months[]=$month;
+
         }
 
         //iteramos por cada id
