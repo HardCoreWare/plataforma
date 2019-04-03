@@ -192,7 +192,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         $summary=[];
 
         //creamos arreglo vacio de meses
-        $months=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
+        $months=$this->mySql->selectDistinct("Reporte","Mes"," 1 ","Id");
 
 
 
