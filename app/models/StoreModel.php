@@ -134,10 +134,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
     }
 
     //obtenemos tabla con modulos presentes
-    public function tableModule($cicle,$module){
-
-        //anualidad
-        $year=$cicle['Anualidad'];
+    public function tableModule($year,$module){
 
         //obtener ids presentes en tabla
         $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
@@ -182,9 +179,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
 
     //obtenemos tabla con modulos presentes
-    public function tableModuleAccumulated($cicle,$module){
-
-        $year=$cicle['Anualidad'];
+    public function tableModuleAccumulated($year,$module){
 
         //obtener ids presentes en tabla
         $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
