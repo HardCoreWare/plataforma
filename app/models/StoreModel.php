@@ -181,7 +181,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
 
     //obtenemos tabla con modulos presentes
-    public function tableModuleAccumulated($cile,$year,$module){
+    public function tableModuleAccumulated($cicle,$module){
 
         //obtener ids presentes en tabla
         $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
