@@ -51,7 +51,6 @@ class reporte extends Controller{
         //modelo de ciclo de donde obtenemos datosm principales
         $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cicle=$cicleModel->getLast();
-        $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
 
         $paramArray=explode("-",$params);
