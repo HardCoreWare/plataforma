@@ -193,6 +193,8 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
         $months=$this->mySql->selectDistinct("Reporte","Mes"," 1 ","Id");
 
+        print_r($months);
+
         //iteramos por cada id
         foreach ($ids as $id) {
 
