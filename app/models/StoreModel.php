@@ -195,7 +195,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //
         for ($i=1; $i<=intval($lastMonth); $i++) { 
 
-            $month=strval();
+            $month=strval($lastMonth);
 
         }
 
