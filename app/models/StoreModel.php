@@ -134,7 +134,7 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
     }
 
     //obtenemos tabla con modulos presentes
-    public function tableModule($cicle,$year,$module){
+    public function tableModule($cicle,$module){
 
         //obtener ids presentes en tabla
         $ids=$this->mySql->selectDistinct("Reporte","Id"," 1 ","Id");
@@ -142,10 +142,8 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
         //creamos resumen en blanco
         $summary=[];
 
-        $monthArray=2;
-
         //mes en curso y por tanto ultimo mes de interes
-        $months=["1","2","3"];
+        $months=$this->mySql->selectDistinct("Reporte","Mes"," 1 ","Mes");
 
         //iteramos por cada id
         foreach ($ids as $id) {
@@ -193,7 +191,6 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
         //creamos arreglo vacio de meses
         $months=$this->mySql->selectDistinct("Reporte","Mes"," 1 ","Mes");
-
 
 
         //iteramos por cada id
