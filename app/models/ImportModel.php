@@ -49,7 +49,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                     "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                     " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                     " AND KOSTL IN (".$cecos.") ".
-                    " AND SUBSTR(DBBLG,1,1) <> 'PROV' ".
+                    " AND SUBSTR(DBBLG,1,1) <> 'N' ".
                     " AND HKONT = '".$account['Cuenta']."') ";     
                     $subquerys[]=$sql;   
 

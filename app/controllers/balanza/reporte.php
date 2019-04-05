@@ -67,18 +67,12 @@ class reporte extends Controller{
 
     }
 
-    public function acumulado($params){
+    public function acumulado($year,$month){
 
-        //modelo de ciclo de donde obtenemos datosm principales
         $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cicle=$cicleModel->getLast();
         $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
-
-        //
-        $paramArray=explode("-",$params);
-        $year=$paramArray[0];
-        $month=$paramArray[1];
 
         //modelo de guardado habilitado
         $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));

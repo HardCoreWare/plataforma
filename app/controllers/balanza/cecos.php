@@ -14,12 +14,7 @@ class cecos extends Controller{
     }
 
     //
-    public function buscar($params){
-
-        $paramArray=explode("-",$params);
-
-        $module=$paramArray[0];
-        $ceco=$paramArray[1];
+    public function buscar($module,$ceco){
 
         $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cecos = $cecosModel->search($module,$ceco);
@@ -85,7 +80,6 @@ class cecos extends Controller{
     public function actualizar(){
 
         if(isset($_POST['req'])){
-
 
             //datos de peticion en json
             $postData=json_decode($_POST['req'],true);
