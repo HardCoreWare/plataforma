@@ -68,11 +68,6 @@ class cecos extends Controller{
             echo('success');
 
         }
-        else{
-
-
-
-        }
 
     }
 
@@ -115,11 +110,6 @@ class cecos extends Controller{
             $storeModel = null;
 
         }
-        else{
-
-
-
-        }
 
     }
 
@@ -160,26 +150,10 @@ class cecos extends Controller{
             $storeModel = null;
 
         }
-        else{
-
-
-
-        }
 
     }
 
-    //
-    public function cecostest(){
-
-        $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $cecos = $cecosModel->cecosString('BANCO');
-        print_r($cecos);
-
-    }
     
-
-
-
 }
 
 
