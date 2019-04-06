@@ -14,11 +14,12 @@ class Accounts extends MySqlConnection implements MySqlUpdateInterface,MySqlInde
 
         $accounts = $this->mySql->select("Cuentas",["Id","Cuenta","Editable","Pagado","Super_Concepto","Concepto","Filtro"]," 1 ","Id","assoc");
 
-        foreach ($accounts as $row) {
+        for ($i=0; $i <count($accounts); $i++) { 
 
-            $row['Id']=intval($row['Id']);
             
+
         }
+        
 
         return $accounts;
 
