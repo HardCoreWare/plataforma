@@ -1,13 +1,5 @@
 <?php
 
-//archivos de configuracion
-require_once('../app/config/config.php');
-
-//controlador maestro
-require_once('../app/controllers/classes/controller.php');
-
-//enrutador
-require_once('../app/core/router.php');
 
 /**************************************************************************************************/
 /**************************************************************************************************/
@@ -41,6 +33,5 @@ require_once('../app/models/LoaderModel.php');
 require_once('../app/models/ImportBreakdownModel.php');
 require_once('../app/models/BreakdownModel.php');
 
-$router = new Router();
 
 ?>
