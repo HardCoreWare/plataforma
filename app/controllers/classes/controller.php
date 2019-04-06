@@ -28,7 +28,7 @@ class Controller{
 
     private function loadDefault(){
 
-        require_once('..app/interfaces/');
+        require_once('..app/interfaces/BigQueryInterfaces.php');
 
     }
 
