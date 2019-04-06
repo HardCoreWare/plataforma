@@ -16,11 +16,13 @@ class Accounts extends MySqlConnection implements MySqlUpdateInterface,MySqlInde
 
         for ($i=0; $i <count($accounts); $i++) { 
 
-            
+            $accounts[$i]['Id']=$accounts[$i]['Id'];
+            $accounts[$i]['Editable']=$accounts[$i]['Editable'];
+            $accounts[$i]['Pagado']=$accounts[$i]['Pagado'];
+            $accounts[$i]['Filtro']=$accounts[$i]['Filtro'];
 
         }
         
-
         return $accounts;
 
     }
