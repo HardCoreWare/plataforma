@@ -1,6 +1,6 @@
 <?php
 
-class Accounts extends MySqlConnection implements MySqlUpdateInterface,MySqlIndexInterface{
+class AccountModel extends MySqlConnection implements MySqlUpdateInterface,MySqlIndexInterface{
 
     //inyectamos dependencia de lib desde el constructor
     public function __construct($mySql){
