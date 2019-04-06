@@ -26,6 +26,12 @@ class Controller{
 
     }
 
+    private function loadDefault(){
+
+        require_once('..app/interfaces/');
+
+    }
+
 }
 
 ?>

@@ -12,6 +12,7 @@ class cecos extends Controller{
         echo(json_encode($cecos));
 
     }
+    
 
     //
     public function buscar($module,$ceco){
@@ -24,6 +25,7 @@ class cecos extends Controller{
         echo(json_encode($cecos));
 
     }
+
 
     //
     public function agregar(){
@@ -70,6 +72,7 @@ class cecos extends Controller{
         }
 
     }
+
 
     //
     public function actualizar(){
@@ -152,6 +155,8 @@ class cecos extends Controller{
         }
 
     }
+
+
 
 }
 
