@@ -35,6 +35,11 @@ class ciclos extends Controller{
         $summaryModel->truncate();
         $summaryModel->detachMySql();
         $summaryModel=null;
+        //truncamos tabla de Resumen
+        $summaryModel= new SummaryModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+        $summaryModel->truncate();
+        $summaryModel->detachMySql();
+        $summaryModel=null;
         //borramos el ultimo mes
         $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $storeModel->delete($cicle);
