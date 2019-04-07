@@ -22,7 +22,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
             $account['Mes']=$month;
             $account['Modulo']=$module;
 
-            if($account['Editable']==='0'){
+            if($account['Editable']===0){
 
                 //filtros pre-establecidos por contabilidad 
                 switch ($account['Filtro']) {
