@@ -167,7 +167,7 @@ class PdoCrud{
         
         $field_pack=implode(", ",$cols);    
         $sql="SELECT ".$field_pack." FROM ".$table." WHERE ".$targets." ORDER BY ".$order;
-        echo($sql);
+        //echo($sql);
         try{
             
             switch($type){
