@@ -49,11 +49,12 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     //buscamos de forma dinamica cada centro de costo
     public function search($module,$ceco){
 
+        $cecos=null;
+
         //en caso de no existir seleccion apareceran todos
         if(($ceco==="all")&&($module==="all")){
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," 1 ","Id","assoc");
-            return $cecos;
 
         }
 
@@ -61,7 +62,6 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
         else if (($ceco==="all")&&($module!=="all")){
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," Modulo='".$module."' ","Id","assoc");
-            return $cecos;
 
         }
 
@@ -69,7 +69,6 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
         else if (($ceco!=="all")&&($module==="all")){
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," Kostl LIKE '".$ceco."%' ","Id","assoc");
-            return $cecos;
 
         }
 
@@ -77,11 +76,14 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
         else{
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," Modulo = '".$module."' AND Kostl LIKE '".$ceco."%' ","Id","assoc");
-            return $cecos;
 
         }
 
-        
+        for ($i=0; $i <count($cecos); $i++) { 
+
+            $cecos[$i]['Id']=intval($cecos[$i]['Id']);
+
+        }
 
     }
 
