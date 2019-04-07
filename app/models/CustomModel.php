@@ -70,7 +70,7 @@ class CustomModel extends MySqlConnection implements MySqlOverwriteInterface, My
             foreach ($accounts as $row) {
 
                 //solo agregaremos filas si son editables
-                if($row['Editable']==='1'){
+                if($row['Editable']===1){
 
                     //linea de datos para insertar en tabla
                     $line=[];
