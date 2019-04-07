@@ -64,20 +64,6 @@ class ciclos extends Controller{
         $reportModel->detachMySql();
         $reportModel=null;
 
-        //truncamos tabla de Editable
-        $summaryModel= new CustomModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $summaryModel->truncate();
-        $summaryModel->detachMySql();
-        $summaryModel=null;
-
-        //truncamos tabla de Resumen
-        $summaryModel= new SummaryModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $summaryModel->truncate();
-        $summaryModel->detachMySql();
-        $summaryModel=null;
-        echo("success");
-
-
     }
 
     //ciclo actual
