@@ -100,7 +100,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                         " AND HKONT = '".$account['Cuenta']."') ";     
                         $subquerys[]=$sql;    
 
-                        echo($sql.'<br><br>');
+                        //echo($sql.'<br><br>');
 
                         break;
                     //
@@ -119,7 +119,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
 
         $uniquery=implode(" UNION ALL ",$subquerys)." ORDER BY (CAST(Id AS INT64)) ";
 
-        echo($uniquery);
+        //echo($uniquery);
 
         $subtotalArray = $this->bigQuery->select($uniquery);
 
