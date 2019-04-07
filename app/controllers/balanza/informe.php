@@ -105,13 +105,6 @@ class informe extends Controller{
         $transcryptModel->detachMySql();
         $transcryptModel = null;
 
-        //
-        $summaryModel = new SummaryModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $summaryModel->truncate();
-        $summaryModel->write($summary);
-        $summaryModel->detachMySql();
-        $summaryModel = null;
-
         $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $storeModel->delete($cicle);
         $storeModel->write($summary);
