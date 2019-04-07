@@ -49,7 +49,6 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     //buscamos de forma dinamica cada centro de costo
     public function search($module,$ceco){
 
-
         //en caso de no existir seleccion apareceran todos
         if(($ceco==="all")&&($module==="all")){
 
@@ -66,7 +65,7 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     
             }
 
-            
+            return $cecos;
 
         }
 
@@ -86,7 +85,7 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     
             }
 
-
+            return $cecos;
 
         }
 
@@ -106,7 +105,7 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     
             }
 
-
+            return $cecos;
 
         }
 
@@ -126,13 +125,9 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     
             }
 
-
+            return $cecos;
 
         }
-
-
-
-
 
     }
 
