@@ -88,8 +88,6 @@ class informe extends Controller{
         $importModel->detachBigQuery();
         $importModel=null;
 
-        print_r($report);
-
         //los datos tomados de big query son agregados al reporte
         $reportModel = new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $reportModel->truncate();
