@@ -67,8 +67,6 @@ class informe extends Controller{
         $accounts=$accountModel->index();
         $accountModel->detachMySql();
 
-        print_r($accounts);
-
         //obtenemos cecos por modulo
         $cecosModel = new cecosModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cecos=[];
