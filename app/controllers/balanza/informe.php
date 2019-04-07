@@ -99,7 +99,7 @@ class informe extends Controller{
         $reportModel->detachMySql();
         $reportModel=null;
 
-        //
+        //tomamos los datos y los pasamos a store
         $transcryptModel = new TranscryptModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $summary = $transcryptModel->transcrypt($accounts,$cicle);
         $transcryptModel->detachMySql();

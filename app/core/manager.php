@@ -25,7 +25,6 @@ require_once('../app/models/CustomModel.php');
 require_once('../app/models/ImportModel.php');
 require_once('../app/models/ReportModel.php');
 require_once('../app/models/CicleModel.php');
-require_once('../app/models/SummaryModel.php');
 require_once('../app/models/TranscryptModel.php');
 require_once('../app/models/StoreModel.php');
 require_once('../app/models/UserModel.php');
