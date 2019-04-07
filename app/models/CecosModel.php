@@ -49,12 +49,24 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     //buscamos de forma dinamica cada centro de costo
     public function search($module,$ceco){
 
-        $cecos=null;
 
         //en caso de no existir seleccion apareceran todos
         if(($ceco==="all")&&($module==="all")){
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," 1 ","Id","assoc");
+
+            if(count($cecos)){
+
+                for ($i=0; $i <count($cecos); $i++) { 
+    
+                    $cecos[$i]['Id']=intval($cecos[$i]['Id']);
+                    $cecos[$i]['Incluido']=intval($cecos[$i]['Incluido']);
+        
+                }
+    
+            }
+
+            
 
         }
 
@@ -63,12 +75,38 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," Modulo='".$module."' ","Id","assoc");
 
+            if(count($cecos)){
+
+                for ($i=0; $i <count($cecos); $i++) { 
+    
+                    $cecos[$i]['Id']=intval($cecos[$i]['Id']);
+                    $cecos[$i]['Incluido']=intval($cecos[$i]['Incluido']);
+        
+                }
+    
+            }
+
+
+
         }
 
         //en caso de existir busqueda en ceco buscamos parecidos
         else if (($ceco!=="all")&&($module==="all")){
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," Kostl LIKE '".$ceco."%' ","Id","assoc");
+
+            if(count($cecos)){
+
+                for ($i=0; $i <count($cecos); $i++) { 
+    
+                    $cecos[$i]['Id']=intval($cecos[$i]['Id']);
+                    $cecos[$i]['Incluido']=intval($cecos[$i]['Incluido']);
+        
+                }
+    
+            }
+
+
 
         }
 
@@ -77,13 +115,24 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
 
             $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," Modulo = '".$module."' AND Kostl LIKE '".$ceco."%' ","Id","assoc");
 
+            if(count($cecos)){
+
+                for ($i=0; $i <count($cecos); $i++) { 
+    
+                    $cecos[$i]['Id']=intval($cecos[$i]['Id']);
+                    $cecos[$i]['Incluido']=intval($cecos[$i]['Incluido']);
+        
+                }
+    
+            }
+
+
+
         }
 
-        for ($i=0; $i <count($cecos); $i++) { 
 
-            $cecos[$i]['Id']=intval($cecos[$i]['Id']);
 
-        }
+
 
     }
 
