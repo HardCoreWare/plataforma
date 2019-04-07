@@ -46,13 +46,11 @@ class ciclos extends Controller{
         $cicleModel->forward();
         $cicleModel->detachMySql();
         $ciclemodel=null;
-
         //truncamos tabla de Report
         $reportModel= new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $reportModel->truncate();
         $reportModel->detachMySql();
         $reportModel=null;
-
         //truncamos tabla de Report
         $customModel= new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $customModel->truncate();
