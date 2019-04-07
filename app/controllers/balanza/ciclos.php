@@ -35,11 +35,6 @@ class ciclos extends Controller{
         $summaryModel->truncate();
         $summaryModel->detachMySql();
         $summaryModel=null;
-        //truncamos tabla de Resumen
-        $summaryModel= new SummaryModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $summaryModel->truncate();
-        $summaryModel->detachMySql();
-        $summaryModel=null;
         //borramos el ultimo mes
         $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $storeModel->delete($cicle);
@@ -52,7 +47,6 @@ class ciclos extends Controller{
     //nuevo ciclo
     public function nuevo(){
 
-        //activamos nuevo ciclo
         $cicleModel=new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cicleModel->forward();
         $cicleModel->detachMySql();
@@ -63,6 +57,12 @@ class ciclos extends Controller{
         $reportModel->truncate();
         $reportModel->detachMySql();
         $reportModel=null;
+
+        //truncamos tabla de Report
+        $customModel= new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+        $customModel->truncate();
+        $customModel->detachMySql();
+        $customModel=null;
 
     }
 
