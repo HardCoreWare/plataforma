@@ -89,6 +89,8 @@ class CustomModel extends MySqlConnection implements MySqlOverwriteInterface, My
 
             }
 
+            
+
             //insertamos los editables
             $this->mySql->insertBlock("Editable_Mensual",$custom);
 
