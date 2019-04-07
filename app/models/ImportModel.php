@@ -119,7 +119,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
     
         }
 
-        $uniquery=implode(" UNION ALL ",$subquerys)." ORDER BY (CAST(Id AS INT64)) ";
+        $uniquery=implode(" UNION ALL ",$subquerys);//." ORDER BY (CAST(Id AS INT64)) ";
 
         $subtotalArray = $this->bigQuery->select($uniquery);
 
