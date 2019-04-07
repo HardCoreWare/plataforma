@@ -36,7 +36,7 @@ class TranscryptModel extends MySqlConnection{
                 $line['Modulo']=$module;
                 
                 //iteramos a partir de los valores editables o generados por informe de BQ
-                if($account['Editable']==1){
+                if($account['Editable']=='1'){
 
                     $line['Monto']=$this->mySql->selectRow("Editable_Mensual",["Monto"]," Id = '".$account['Id']."' AND Modulo = '".$module."' ","Id")["Monto"];
 
