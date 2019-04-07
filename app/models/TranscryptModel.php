@@ -24,13 +24,13 @@ class TranscryptModel extends MySqlConnection{
             foreach ($accounts as $account) {
 
                 //iteramos y transcribimos directamente de cuantas
-                $line['Id']=$account['Id'];
+                $line['Id']=strval($account['Id']);
                 $line['Cuenta']=$account['Cuenta'];
                 $line['Super_Concepto']=$account['Super_Concepto'];
                 $line['Concepto']=$account['Concepto'];
-                $line['Pagado']=$account['Pagado'];
+                $line['Pagado']=strval($account['Pagado']);
                 $line['Modulo']=$module;
-                $line['Editable']=$account['Editable'];
+                $line['Editable']=strval($account['Editable']);
                 $line['Anualidad']=$year;
                 $line['Mes']=$month;
                 $line['Modulo']=$module;
