@@ -53,6 +53,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                     " AND HKONT = '".$account['Cuenta']."') ";     
                     $subquerys[]=$sql;   
 
+                    echo($sql.'<br><br>');
 
                         break;
                     // caso gastos generales
@@ -66,6 +67,8 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                     " AND HKONT = '".$account['Cuenta']."') ";     
 
                     $subquerys[]=$sql;   
+
+                    echo($sql.'<br><br>');
 
     
                         break;
@@ -96,7 +99,10 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                     " AND SUBSTR(DBBLG,0,4) <> 'PROV' ".
                     " AND HKONT = '".$account['Cuenta']."') ";     
 
-                    $subquerys[]=$sql;   
+                    $subquerys[]=$sql;
+
+                    echo($sql.'<br><br>');
+
     
                         break;
                     //
