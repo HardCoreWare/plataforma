@@ -28,10 +28,6 @@ class reporte extends Controller{
         $modules=$cicle['Modules'];
         $cicleModel->detachMySql();
 
-        $paramArray=explode("-",$params);
-        $year=$paramArray[0];
-        $module=$paramArray[1];
-
         //modelo de guardado habilitado
         $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $report = $storeModel->tableModule($year,$module);
