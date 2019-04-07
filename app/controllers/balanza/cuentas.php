@@ -48,12 +48,7 @@ class cuentas extends Controller{
             $reportModel->detachMySql();
             $reportModel=null;
 
-            //borramos resumen
-            $summaryModel=new SummaryModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-            $summaryModel->truncate();
-            $summaryModel->detachMySql();
-            $summaryModel=null;
-
+            //reporte
             $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
             $storeModel->delete($cicle);
             $storeModel->detachMySql();
