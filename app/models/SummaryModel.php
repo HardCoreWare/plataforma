@@ -73,7 +73,7 @@ class SummaryModel extends MySqlConnection implements MySqlIndexInterface{
                 //llegando al final agregamos el total en el segundo nivel
                 if($i==4){
 
-                    $totalModule=["Modulo"=>"Total","Monto"=>strval($total)];
+                    $totalModule=["Modulo"=>"Total","Monto"=>$total];
                     $line["Montos"][]=$totalModule;
 
                 }
@@ -82,6 +82,14 @@ class SummaryModel extends MySqlConnection implements MySqlIndexInterface{
 
             //agregamos linea al resumen
             $summary[]=$line;
+
+        }
+
+        for ($i=0; $i <count($summary); $i++) { 
+
+            $summary[$i]['Id']=intval($summary[$i]['Id']);
+            $summary[$i]['Pagado']=intval($summary[$i]['Pagado']);
+            $summary[$i]['Editable']=intval($summary[$i]['Editable']);
 
         }
 
