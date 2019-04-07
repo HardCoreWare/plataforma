@@ -65,7 +65,7 @@ class desglose extends Controller{
 
     }
 
-
+    /*
     public function parche($year,$month){
 
         //modelo de ciclo de donde obtenemos datosm principales
@@ -112,7 +112,7 @@ class desglose extends Controller{
         $breakdownModel=null;
         echo('success');
 
-    }
+    }*/
 
 }
 
