@@ -85,7 +85,7 @@ class SummaryModel extends MySqlConnection implements MySqlIndexInterface{
 
         }
 
-        for ($i=0; $i <count($summary); $i++) { 
+        /*for ($i=0; $i <count($summary); $i++) { 
 
             $summary[$i]['Id']=intval($summary[$i]['Id']);
             $summary[$i]['Pagado']=intval($summary[$i]['Pagado']);
@@ -94,7 +94,7 @@ class SummaryModel extends MySqlConnection implements MySqlIndexInterface{
         }
 
         //retornamos resumen
-        return $summary;
+        return $summary;*/
 
     }
 
