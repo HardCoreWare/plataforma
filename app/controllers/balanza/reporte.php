@@ -20,7 +20,7 @@ class reporte extends Controller{
 
     }
 
-    public function modular($params){
+    public function modular($year,$module){
 
         //modelo de ciclo de donde obtenemos datosm principales
         $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
