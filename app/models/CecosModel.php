@@ -13,7 +13,19 @@ class CecosModel extends MySqlConnection implements MySqlIndexInterface{
     public function index(){
 
         $cecos = $this->mySql->select("Cecos",["Id","Modulo","Kostl","Incluido"]," 1 ","Id","assoc");
+        if(count($cecos)){
+
+            for ($i=0; $i <count($cecos); $i++) { 
+
+                $cecos[$i]['Id']=intval($cecos[$i]['Id']);
+                $cecos[$i]['Incluido']=intval($cecos[$i]['Incluido']);
+    
+            }
+
+        }
+
         return $cecos;
+
     }
 
     //cambiar si un ceco es editable o no
