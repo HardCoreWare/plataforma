@@ -123,7 +123,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
 
         echo($uniquery);
 
-        $subtotalArray = $this->bigQuery->select($uniquery);
+        //$subtotalArray = $this->bigQuery->select($uniquery);
 
         //reporte para curar
         $reportArray=[];
