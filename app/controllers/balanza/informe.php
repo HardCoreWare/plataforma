@@ -25,9 +25,8 @@ class informe extends Controller{
 
         else{
 
-            $reportModel->detachMySql();
-            $reportModel=null;
-            echo("false");
+            
+
         }
 
     }
