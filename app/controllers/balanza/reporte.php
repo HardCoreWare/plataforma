@@ -38,16 +38,12 @@ class reporte extends Controller{
 
     }
 
-    public function modular_acumulado($params){
+    public function modular_acumulado($year,$module){
 
         //modelo de ciclo de donde obtenemos datosm principales
         $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $cicle=$cicleModel->getLast();
         $cicleModel->detachMySql();
-
-        $paramArray=explode("-",$params);
-        $year=$paramArray[0];
-        $module=$paramArray[1];
 
         //modelo de guardado habilitado
         $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
