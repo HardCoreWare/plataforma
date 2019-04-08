@@ -82,6 +82,7 @@ class ReportModel extends MySqlConnection implements MySqlTruncateInterface,MySq
     //
     public function truncate(){
 
+        //
         $this->mySql->truncate("Informe_Mensual");
 
     }
