@@ -12,8 +12,6 @@ class desglose extends Controller{
         $breakDownModel=null;
         echo(json_encode($breakdown));
 
-        print_r($breakdown);
-
     }
 
     public function importar(){
