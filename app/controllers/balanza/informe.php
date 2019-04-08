@@ -13,10 +13,7 @@ class informe extends Controller{
 
         $reportModel=new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         
-        if($reportModel->check()){
-
-
-
+        if($reportModel->check($cile)){
 
             $report=$reportModel->table($modules);
             $reportModel->detachMySql();
