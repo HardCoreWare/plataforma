@@ -10,7 +10,10 @@ class ReportModel extends MySqlConnection implements MySqlTruncateInterface,MySq
     }
 
     //chacamos si la tabla tiene datos
-    public function check(){
+    public function check($cicle){
+
+        $year=$cicle['Anualidad'];
+        $month=$cicle['Month'];
 
         //contamos todas las filas
         $count=intval($this->mySql->selectCount("Reporte","Id"," 1 "));
