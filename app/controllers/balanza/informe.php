@@ -25,7 +25,7 @@ class informe extends Controller{
 
         else{
 
-
+            echo(json_encode([]));
 
         }
 
