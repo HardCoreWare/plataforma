@@ -47,10 +47,10 @@ class TranscryptModel extends MySqlConnection{
 
                 else{
 
-                    //$line['Monto']=$this->mySql->selectRow("Informe_Mensual",["Monto"]," Id = '".$account['Id']."' AND Modulo = '".$module."' ","Id")["Monto"];
+                    $line['Monto']=$this->mySql->selectRow("Informe_Mensual",["Monto"]," Id = '".$account['Id']."' AND Modulo = '".$module."' ","Id")["Monto"];
 
                     //agregamos nueva linea al resumen
-                    //$summary[]=$line;
+                    $summary[]=$line;
 
                 }
 
