@@ -5,15 +5,18 @@ class informe extends Controller{
     //
     public function indice(){
 
+        $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+        $cicle=$cicleModel->getLast();
+        $modules=$cicle['Modules'];
+        $cicleModel->detachMySql();
+        $cicleModel=null;
+
         $reportModel=new ReportModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         
         if($reportModel->check()){
 
-            $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-            $cicle=$cicleModel->getLast();
-            $modules=$cicle['Modules'];
-            $cicleModel->detachMySql();
-            $cicleModel=null;
+
+
 
             $report=$reportModel->table($modules);
             $reportModel->detachMySql();
@@ -25,7 +28,7 @@ class informe extends Controller{
 
         else{
 
-            
+
 
         }
 
