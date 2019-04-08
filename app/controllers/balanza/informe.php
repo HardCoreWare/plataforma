@@ -107,11 +107,11 @@ class informe extends Controller{
 
         echo(json_encode($summary));
 
-        /*$storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+        $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $storeModel->delete($cicle);
         $storeModel->write($summary);
         $storeModel->detachMySql();
-        $storeModel = null;*/
+        $storeModel = null;
 
         echo('success');
 
