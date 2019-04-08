@@ -23,7 +23,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
             $account['Mes']=$month;
             $account['Modulo']=$module;
 
-            if($account['Editable']==='0'){
+            if($account['Editable']===0){
 
                 //filtros pre-establecidos por contabilidad 
                 switch ($account['Filtro']) {
