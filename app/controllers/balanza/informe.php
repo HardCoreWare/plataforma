@@ -100,15 +100,13 @@ class informe extends Controller{
 
         //tomamos los datos y los pasamos a store
         $transcryptModel = new TranscryptModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $summary = $transcryptModel->transcrypt($accounts,$cicle);
+        $report = $transcryptModel->transcrypt($accounts,$cicle);
         $transcryptModel->detachMySql();
         $transcryptModel = null;
 
-        echo(json_encode($summary));
-
         $storeModel = new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
         $storeModel->delete($cicle);
-        $storeModel->write($summary);
+        $storeModel->write($report);
         $storeModel->detachMySql();
         $storeModel = null;
 
