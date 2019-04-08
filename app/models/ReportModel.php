@@ -13,7 +13,7 @@ class ReportModel extends MySqlConnection implements MySqlTruncateInterface,MySq
     public function check($cicle){
 
         $year=$cicle['Anualidad'];
-        $month=$cicle['Month'];
+        $month=$cicle['Mes'];
 
         //contamos todas las filas
         $count=intval($this->mySql->selectCount("Reporte","Id"," 1 "));
