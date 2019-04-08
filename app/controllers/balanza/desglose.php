@@ -10,7 +10,7 @@ class desglose extends Controller{
         $breakdown = $breakDownModel->search($id,$year,$month,$day,$module,$ceco);
         $breakDownModel->detachMySql();
         $breakDownModel=null;
-        //echo(json_encode($breakdown));
+        echo(json_encode($breakdown));
 
         print_r($breakdown);
 
