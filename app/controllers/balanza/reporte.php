@@ -67,22 +67,38 @@ class reporte extends Controller{
 
         }
 
+        else{
+
+            echo('error 403');
+
+        }
+
     }
 
     public function acumulado($year,$month){
 
-        $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $cicle=$cicleModel->getLast();
-        $modules=$cicle['Modules'];
-        $cicleModel->detachMySql();
+        if(isset($year)&&isset($module)){
 
-        //modelo de guardado habilitado
-        $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $report = $storeModel->tableMonthAccumulated($modules,$year,$month);
-        $storeModel->detachMySql();
-        $storeModel=null;
+            $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $cicle=$cicleModel->getLast();
+            $modules=$cicle['Modules'];
+            $cicleModel->detachMySql();
+    
+            //modelo de guardado habilitado
+            $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $report = $storeModel->tableMonthAccumulated($modules,$year,$month);
+            $storeModel->detachMySql();
+            $storeModel=null;
+    
+            echo(json_encode($report));
 
-        echo(json_encode($report));
+        }
+
+        else{
+
+            echo('error 403');
+
+        }
 
     }
 
