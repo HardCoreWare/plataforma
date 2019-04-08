@@ -46,24 +46,26 @@ class reporte extends Controller{
 
         }
 
-
-
     }
 
     public function modular_acumulado($year,$module){
 
-        //modelo de ciclo de donde obtenemos datosm principales
-        $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $cicle=$cicleModel->getLast();
-        $cicleModel->detachMySql();
+        if(isset($year)&&isset($module)){
 
-        //modelo de guardado habilitado
-        $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $report = $storeModel->tableModuleAccumulated($year,$module);
-        $storeModel->detachMySql();
-        $storeModel=null;
+            //modelo de ciclo de donde obtenemos datosm principales
+            $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $cicle=$cicleModel->getLast();
+            $cicleModel->detachMySql();
 
-        echo(json_encode($report));
+            //modelo de guardado habilitado
+            $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $report = $storeModel->tableModuleAccumulated($year,$module);
+            $storeModel->detachMySql();
+            $storeModel=null;
+
+            echo(json_encode($report));
+
+        }
 
     }
 
