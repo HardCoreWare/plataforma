@@ -16,7 +16,7 @@ class ReportModel extends MySqlConnection implements MySqlTruncateInterface,MySq
         $month=$cicle['Mes'];
 
         //contamos todas las filas
-        $count=intval($this->mySql->selectCount("Reporte","Id"," 1 "));
+        $count=intval($this->mySql->selectCount("Reporte","Id"," Mes='".$month."' AND Anualidad='".$year."'"));
 
         //en caso de haber 1 fila o mas retornamos true 
         if($count){
