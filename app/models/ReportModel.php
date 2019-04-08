@@ -13,7 +13,7 @@ class ReportModel extends MySqlConnection implements MySqlTruncateInterface,MySq
     public function check(){
 
         //contamos todas las filas
-        $count=intval($this->mySql->selectCount("Resumen","Id"," 1 "));
+        $count=intval($this->mySql->selectCount("Reporte","Id"," 1 "));
 
         //en caso de haber 1 fila o mas retornamos true 
         if($count){
