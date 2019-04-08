@@ -49,37 +49,22 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                         "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
-                        " AND SUBSTR(DBBLG,0,4) <> 'PROV' ".
+                        " AND SUBSTR(DBBLG,0,1) = 'N' ".
                         " AND HKONT = '".$account['Cuenta']."') ";     
                         $subquerys[]=$sql;    
 
                         //echo($sql.'<br><br>');
 
                         break;
+
+
                     // caso gastos generales
                     case '2':
-
-                        $sql="SELECT ROUND(SUM(CAST(DMBTR AS FLOAT64)), 2) AS Monto, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".strval($account['Id'])." AS Id, '".$account['Mes']."' AS Mes, '".$account['Super_Concepto']."' AS Super_Concepto, '".$account['Concepto']."' AS Concepto, '".strval($account['Pagado'])."' AS Pagado, '".$account['Editable']."' AS Editable ".
-                        "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
-                        " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
-                        " AND KOSTL IN (".$cecos.") ".
-                        " AND SUBSTR(DBBLG,0,4) <> 'PROV' ".
-                        " AND HKONT = '".$account['Cuenta']."') ";     
-                        $subquerys[]=$sql;    
-
-                        //echo($sql.'<br><br>');
-
-    
-                        break;
-
-                    // caso gastos generales
-                    case '3':
     
                         $sql="SELECT ROUND(SUM(CAST(DMBTR AS FLOAT64)), 2) AS Monto, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".strval($account['Id'])." AS Id, '".$account['Mes']."' AS Mes, '".$account['Super_Concepto']."' AS Super_Concepto, '".$account['Concepto']."' AS Concepto, '".strval($account['Pagado'])."' AS Pagado, '".$account['Editable']."' AS Editable ".
                         "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
-                        " AND SUBSTR(DBBLG,0,4) <> 'PROV' ".
                         " AND HKONT = '".$account['Cuenta']."') ";     
                         $subquerys[]=$sql;    
 
@@ -90,13 +75,13 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
 
 
                     // caso gastos generales
-                    case '4':
+                    case '3':
     
                         $sql="SELECT ROUND(SUM(CAST(DMBTR AS FLOAT64)), 2) AS Monto, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".strval($account['Id'])." AS Id, '".$account['Mes']."' AS Mes, '".$account['Super_Concepto']."' AS Super_Concepto, '".$account['Concepto']."' AS Concepto, '".strval($account['Pagado'])."' AS Pagado, '".$account['Editable']."' AS Editable ".
                         "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
-                        " AND SUBSTR(DBBLG,0,4) <> 'PROV' ".
+                        " --AND SUBSTR(DBBLG,0,4) <> 'PROV' ".
                         " AND HKONT = '".$account['Cuenta']."') ";     
                         $subquerys[]=$sql;    
 
