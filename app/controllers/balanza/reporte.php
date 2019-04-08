@@ -22,19 +22,31 @@ class reporte extends Controller{
 
     public function modular($year,$module){
 
-        //modelo de ciclo de donde obtenemos datosm principales
-        $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $cicle=$cicleModel->getLast();
-        $modules=$cicle['Modules'];
-        $cicleModel->detachMySql();
+        if(isset($year)&&isset($module)){
 
-        //modelo de guardado habilitado
-        $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
-        $report = $storeModel->tableModule($year,$module);
-        $storeModel->detachMySql();
-        $storeModel=null;
+            //modelo de ciclo de donde obtenemos datosm principales
+            $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $cicle=$cicleModel->getLast();
+            $modules=$cicle['Modules'];
+            $cicleModel->detachMySql();
 
-        echo(json_encode($report));
+            //modelo de guardado habilitado
+            $storeModel=new StoreModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
+            $report = $storeModel->tableModule($year,$module);
+            $storeModel->detachMySql();
+            $storeModel=null;
+
+            echo(json_encode($report));
+
+        }
+
+        else{
+
+            echo('error 403');
+
+        }
+
+
 
     }
 
