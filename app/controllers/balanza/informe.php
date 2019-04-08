@@ -25,26 +25,7 @@ class informe extends Controller{
 
         else{
 
-            
 
-        }
-
-    }
-
-    //chacamos si la tabla tiene datos
-    public function check(){
-
-        $count=intval($this->mySql->selectCount("Informe_Mensual","Id"," 1 "));
-
-        if($count){
-
-            return true;
-
-        }
-
-        else{
-
-            return false;
 
         }
 
