@@ -40,17 +40,21 @@ class TranscryptModel extends MySqlConnection{
 
                     $line['Monto']=$this->mySql->selectRow("Editable_Mensual",["Monto"]," Id = '".$account['Id']."' AND Modulo = '".$module."' ","Id")["Monto"];
 
+                    //agregamos nueva linea al resumen
+                    $summary[]=$line;
+    
                 }
 
                 else{
 
                     $line['Monto']=$this->mySql->selectRow("Informe_Mensual",["Monto"]," Id = '".$account['Id']."' AND Modulo = '".$module."' ","Id")["Monto"];
 
+                    //agregamos nueva linea al resumen
+                    $summary[]=$line;
+                    
                 }
 
-                //agregamos nueva linea al resumen
-                $summary[]=$line;
-    
+
             }
         
         }
