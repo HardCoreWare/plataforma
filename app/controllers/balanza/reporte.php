@@ -18,6 +18,7 @@ class reporte extends Controller{
             $storeModel->detachMySql();
             $storeModel=null;
 
+            //
             echo(json_encode($report));
 
         }
@@ -26,9 +27,6 @@ class reporte extends Controller{
             echo('error 403');
 
         }
-
-
-
 
     }
 
