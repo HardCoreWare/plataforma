@@ -91,6 +91,7 @@ class reporte extends Controller{
 
         if(isset($year)&&isset($month)){
 
+            //modelo de ciclo
             $cicleModel = new CicleModel(new PdoCrud(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE));
             $cicle=$cicleModel->getLast();
             $modules=$cicle['Modules'];
