@@ -64,6 +64,12 @@ class StoreModel extends MySqlConnection implements MySqlWriteInterface{
 
         }
 
+        for ($i=0; $i < count($summary); $i++) { 
+
+            $summary[$i]['Pagado']=intval($summary[$i]['Pagado']);
+
+        }
+
         //retornamos resumen
         return $summary;
 
