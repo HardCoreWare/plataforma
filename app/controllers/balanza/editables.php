@@ -62,6 +62,8 @@ class editables extends Controller{
             $storeModel = null;
 
             $response=['status'=>'success'];
+
+            echo(json_encode($response));
         
         }
 
