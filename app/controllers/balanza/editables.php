@@ -62,8 +62,6 @@ class editables extends Controller{
             $storeModel = null;
 
             $response=['status'=>'success'];
-
-            echo('error 402');
         
         }
 
