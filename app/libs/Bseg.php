@@ -22,7 +22,6 @@
                 $field['name']=$header;
                 $field['type']='string';
 
-
                 // agregamos el campo al array de schema
                 $schema['fields'][]=$field;
 
@@ -31,7 +30,7 @@
             return $schema;
 
         }
-    }
 
+    }
 
 ?>
