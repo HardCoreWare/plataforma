@@ -31,8 +31,10 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                     // caso no pagado
                     case '0':
     
-                        $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, REGEXP_REPLACE(SGTXT,`'`,` `) AS Descripcion, CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
-                        "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
+                        $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, ".
+                        " SGTXT AS Descripcion, ".
+                        " CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, "."'".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
+                        " FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
@@ -44,7 +46,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                     case '1':
     
                         $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, REGEXP_REPLACE(SGTXT,`'`,` `) AS Descripcion, CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
-                        "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
+                        " FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
@@ -56,7 +58,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                     case '2':
     
                         $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, REGEXP_REPLACE(SGTXT,`'`,` `) AS Descripcion, CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
-                        "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
+                        " FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
@@ -68,8 +70,9 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                     // caso no pagado
                     case '3':
     
-                        $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, REGEXP_REPLACE(SGTXT,`'`,` `) AS Descripcion, CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
-                        "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
+                        $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, ".
+                        " REGEXP_REPLACE(SGTXT,`'`,` `) AS Descripcion, CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
+                        " FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
@@ -81,7 +84,7 @@ class ImportBreakdownModel extends BigQueryConnection implements BigQueryImportI
                     case '4':
     
                         $sql="SELECT ROUND(CAST(DMBTR AS FLOAT64), 2) AS Monto, KOSTL AS Ceco, REGEXP_REPLACE(SGTXT,`'`,` `) AS Descripcion, CAST(SUBSTR(BUDAT,7,8) AS INT64) AS Dia, '".$account['Anualidad']."' AS Anualidad, '".$account['Modulo']."' AS Modulo, '".$account['Cuenta']."' AS Cuenta, ".$account['Id']." AS Id, '".$account['Mes']."' AS Mes, '".$account['Pagado']."' AS Pagado, '".$account['Editable']."' AS Editable ".
-                        "FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
+                        " FROM (SELECT BUDAT, KOSTL, HKONT, DMBTR, SGTXT FROM `informe-211921.BALANZA.BSEG_".$account['Anualidad']."_".$account['Mes']."` WHERE CAST(SUBSTR(BUDAT,5,2) AS INT64) = ".$account['Mes'].
                         " AND CAST(SUBSTR(BUDAT,1,4) AS INT64) = ".$account['Anualidad'].
                         " AND KOSTL IN (".$cecos.") ".
                         " AND SUBSTR(DBBLG,0,4) <> 'PROV' AND HKONT = '".$account['Cuenta']."') ";   
