@@ -53,7 +53,7 @@ class ImportModel extends BigQueryConnection implements BigQueryImportInterface{
                         " AND HKONT = '".$account['Cuenta']."') ";     
                         $subquerys[]=$sql;    
 
-                        echo($sql.'<br><br>');
+                        //echo($sql.'<br><br>');
 
                         break;
 

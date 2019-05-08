@@ -4,6 +4,12 @@
 
 class Controller{
 
+    public function __construct(){
+
+        header('Content-type: application/pdf');
+
+    }
+
     // mandamos a llamar un modelo
     public function model($model){
 
