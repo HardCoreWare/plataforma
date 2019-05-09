@@ -6,7 +6,7 @@ class Controller{
 
     public function __construct(){
 
-        header('Content-type: application/json');
+        //header('Content-type: application/json');
 
     }
 
